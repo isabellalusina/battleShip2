@@ -31,19 +31,26 @@ var model = {
             var index = locations.indexOf(guess);
             if (index >= 0) {
                 ship.hits[index] = "hit";
+                view.displayHit(guess);
+                view.displayMessage("TRAFIONY!");
                 if (this.isSunk(ship)) {
+                    view.displayMessage("Zatopiłeś mój okręt!");
                     this.shipsSunk++;
                 }
                 return true;
             }
         }
+        view.displayMiss(guess);
+        view.displayMessage("Spudłowałeś.");
         return false;
+    },
+    isSunk: function(ship) {
+        for (var i = 0; i < this.shipLength; i++) {
+            if (ship.hits[i] !== "hit") {
+                return false;
+            }
+            return true;
+        }
+
     }
 };
-/*view.displayMiss("05");
-view.displayHit("34");
-view.displayMiss("55");
-view.displayHit("12");
-view.displayMiss("25");
-view.displayHit("26");
-view.displayMessage("Halo halo test");*/
