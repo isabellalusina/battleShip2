@@ -28,7 +28,16 @@ var model = {
     fire: function(guess) {
         for (var i = 0; i < this.numShips; i++) {
             var ship = this.ships[i];
+            var index = locations.indexOf(guess);
+            if (index >= 0) {
+                ship.hits[index] = "hit";
+                if (this.isSunk(ship)) {
+                    this.shipsSunk++;
+                }
+                return true;
+            }
         }
+        return false;
     }
 };
 /*view.displayMiss("05");
