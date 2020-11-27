@@ -28,7 +28,7 @@ var model = {
     fire: function(guess) {
         for (var i = 0; i < this.numShips; i++) {
             var ship = this.ships[i];
-            var index = locations.indexOf(guess);
+            var index = ship.locations.indexOf(guess);
             if (index >= 0) {
                 ship.hits[index] = "hit";
                 view.displayHit(guess);
@@ -51,6 +51,14 @@ var model = {
             }
             return true;
         }
+
+    }
+};
+
+var controller = {
+    guesses: 0,
+
+    processGuess: function(guess) {
 
     }
 };
