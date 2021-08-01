@@ -58,7 +58,7 @@ var model = {
 var controller = {
     guesses: 0,
 
-    processGuess: function(guess) {
+    praseGuess: function(guess) {
         var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
 
         if (guess === null || guess.length !== 2) {
@@ -79,4 +79,5 @@ var controller = {
         return null;
 
     }
+    
 };
